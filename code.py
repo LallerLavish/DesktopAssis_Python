@@ -45,4 +45,3 @@ def voice():
     return query
 text=voice()
 speak(text)
-    
