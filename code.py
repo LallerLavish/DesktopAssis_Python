@@ -43,5 +43,46 @@ def voice():
             print("Say That Again Please")
             return "Say That Again Please"
     return query
-text=voice()
-speak(text)
+
+def wish_me():
+    time=(datetime.datetime.now().hour)
+    if(time>=0 and time<12):
+        speak("Good Morning Lavish")
+    elif(time>=12 and time<18):
+        speak("Good Afternoon Lavish")
+    else:
+        speak("Good Evening Lavish")
+    
+    speak("I am You Assistant. What can i help you")
+
+
+
+if __name__=="__main__":
+    wish_me()
+    text=voice().lower()
+    while(text!="quit"):
+         # beacuse beas and Beas is same for us not for computer.
+        
+        if "wikipedia" in text:
+            speak("Searching Wikipedia")
+            text=text.replace("wikipedia",'')
+            results=wikipedia.summary(text,sentences=1)
+            speak("According to wikipedia ")
+            print(results)
+            speak(results)
+    
+        elif "google" in text:
+            speak("opening google")
+            webbrowser.open("https://www.google.com/?client=safari")
+
+        elif "youtube" in text:
+            speak("opening youtube")
+            webbrowser.open("https://www.youtube.com")
+
+        elif "github" in text:
+            speak("opening github")
+            webbrowser.open_new_tab("https://github.com")
+
+        text=voice().lower()
+
+
